@@ -6,6 +6,9 @@
 
 .poster img {
     width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    display: block;
 }
 
 .movie_description {

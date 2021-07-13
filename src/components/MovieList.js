@@ -1,9 +1,10 @@
-import React, {useState, useEffect } from "react";
-import MovieCard from "./MovieCard";
-import PaginationList from "./PaginationList";
+import React, { useState, useEffect } from "react";
+import MovieCard from "./MovieCard/MovieCard";
+import PaginationList from "./Paginations/PaginationList";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { Container } from "@material-ui/core";
+import SearchMovies from "./SearchMovies/SearchMovies";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,39 +26,36 @@ export default function MovieList() {
       });
   }, [page]);
 
+  function currentPage(e) {
+    setValue("");
+    setPage(e);
+  }
+
+  function getSearchData(e) {
+    setValue(e);
+  }
+
   const filteredMovies = movies.filter((mov) => {
     return mov.Title.toLowerCase().includes(value.toLowerCase());
   });
 
-  function currentPage(e){
-    setValue('');
-    setPage(e)
-  }
-
   return (
     <div className="movies_wrapper">
       <Container>
-      <form action="">
-        <input
-          type="text"
-          placeholder="search movies"
-          value={value}
-          onInput={(event) => setValue(event.target.value)}
-        />
-      </form>
-      <div className={classes.root}>
-        <Grid container spacing={2}>
-          {filteredMovies.map((item, index) => {
-            return (
-              <Grid item xs={3} key={index}>
-                <MovieCard movies={item} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </div>
+        <SearchMovies setSearchData={getSearchData} />
+        <div className={classes.root}>
+          <Grid container spacing={2}>
+            {filteredMovies.length ? filteredMovies.map((item, index) => {
+              return (
+                <Grid item xs={4} key={index}>
+                  <MovieCard movies={item} />
+                </Grid>
+              );
+            }) : (<h2>No movie</h2>)}
+          </Grid>
+        </div>
 
-      <PaginationList currentPage={currentPage}/>
+        <PaginationList currentPage={currentPage} />
       </Container>
     </div>
   );

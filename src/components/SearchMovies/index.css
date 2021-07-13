@@ -1,0 +1,10 @@
+.search_form {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto 30px;
+}
+
+.search_form form,
+.search_form .MuiTextField-root {
+    width: 100%;
+}

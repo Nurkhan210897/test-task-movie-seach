@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 import "./index.css";
 import { Container } from "@material-ui/core";
-import Loader from "../Loading";
+import Loader from "../Loader/Loader";
 
 export default function MovieInfo({ match }) {
   const id = match.params.id;
@@ -30,7 +30,7 @@ export default function MovieInfo({ match }) {
           setMoviePoster(response.Poster);
           setMoviePlot(response.Plot);
           setLoading(false);
-        }, 2000);
+        }, 1000);
       });
   }, []);
 
