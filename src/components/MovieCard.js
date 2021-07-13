@@ -28,7 +28,6 @@ export default function MovieCard(props) {
             image={props.movies.Poster}
             title="Contemplative Reptile"
           />
-          Home
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {props.movies.Title}

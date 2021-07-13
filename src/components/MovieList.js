@@ -3,6 +3,7 @@ import MovieCard from "./MovieCard";
 import PaginationList from "./PaginationList";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +20,8 @@ export default function MovieList() {
   useEffect(() => {
     fetch(`http://www.omdbapi.com/?s=marvel&apikey=4ed03e49&page=${page}`)
       .then((response) => response.json())
-      .then((movies) => {
-        setMovies(movies.Search);
+      .then((response) => {
+        setMovies(response.Search);
       });
   }, [page]);
 
@@ -29,11 +30,13 @@ export default function MovieList() {
   });
 
   function currentPage(e){
+    setValue('');
     setPage(e)
   }
 
   return (
     <div className="movies_wrapper">
+      <Container>
       <form action="">
         <input
           type="text"
@@ -46,7 +49,7 @@ export default function MovieList() {
         <Grid container spacing={2}>
           {filteredMovies.map((item, index) => {
             return (
-              <Grid item xs={4} key={index}>
+              <Grid item xs={3} key={index}>
                 <MovieCard movies={item} />
               </Grid>
             );
@@ -55,6 +58,7 @@ export default function MovieList() {
       </div>
 
       <PaginationList currentPage={currentPage}/>
+      </Container>
     </div>
   );
 }

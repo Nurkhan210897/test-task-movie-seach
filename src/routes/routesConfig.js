@@ -1,5 +1,5 @@
 import MovieList from '../components/MovieList'
-import MovieInfo from '../components/MovieInfo'
+import MovieInfo from '../components/MovieInfo/MovieInfo'
 
 
 const routesConfig = [{
