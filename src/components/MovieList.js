@@ -3,7 +3,6 @@ import MovieCard from "./MovieCard";
 import PaginationList from "./PaginationList";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +15,6 @@ export default function MovieList() {
   const [movies, setMovies] = React.useState([]);
   const [value, setValue] = useState("");
   const [page, setPage] = React.useState(1);
-  let queryPage = new URLSearchParams(useLocation().search);
 
   useEffect(() => {
     fetch(`http://www.omdbapi.com/?s=marvel&apikey=4ed03e49&page=${page}`)

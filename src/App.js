@@ -1,15 +1,26 @@
 import "./App.css";
-import MovieList from "./components/MovieList";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import routesConfig from "./routes/routesConfig";
 import Container from "@material-ui/core/Container";
 
 function App() {
-
   return (
-    <div className="App">
-      <Container maxWidth="md">
-        <MovieList />
-      </Container>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Container maxWidth="md">
+          <Switch>
+            {routesConfig.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
+            ))}
+          </Switch>
+        </Container>
+      </div>
+    </BrowserRouter>
   );
 }
 

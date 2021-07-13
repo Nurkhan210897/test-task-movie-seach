@@ -5,7 +5,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -20,15 +20,15 @@ export default function MovieCard(props) {
   const classes = useStyles();
 
   return (
-    <route path="/card">
-      <Card className={classes.root}>
+    <Card className={classes.root}>
+      <Link to={`/movie-info/${props.movies.imdbID}`}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
             image={props.movies.Poster}
             title="Contemplative Reptile"
           />
-          <Link to="/Nurhan">Home</Link>
+          Home
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {props.movies.Title}
@@ -39,7 +39,7 @@ export default function MovieCard(props) {
             </Typography>
           </CardContent>
         </CardActionArea>
-      </Card>
-    </route>
+      </Link>
+    </Card>
   );
 }
