@@ -33,6 +33,7 @@ export default function MovieList() {
       .then((response) => {
         setMovies(response.Search);
         setLoading(false);
+        window.scrollTo(0, 0);
       });
   }, [page]);
 
