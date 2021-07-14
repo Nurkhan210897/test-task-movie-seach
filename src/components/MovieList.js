@@ -42,7 +42,7 @@ export default function MovieList() {
     setPage(e);
   }
 
-  function getSearchData(e) {
+  function filteringBySearchData(e) {
     setValue(e);
     console.log(e.length);
   }
@@ -56,7 +56,7 @@ export default function MovieList() {
       {loading && <Loader />}
       {!loading && (
         <Container>
-          <SearchMovies setSearchData={getSearchData} />
+          <SearchMovies setSearchData={filteringBySearchData} />
           <div className={classes.root}>
             <Grid container spacing={3}>
               
