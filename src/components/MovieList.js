@@ -44,7 +44,6 @@ export default function MovieList() {
 
   function filteringBySearchData(e) {
     setValue(e);
-    console.log(e.length);
   }
 
   const filteredMovies = movies.filter((mov) => {
