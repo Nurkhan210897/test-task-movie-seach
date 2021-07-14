@@ -1,3 +1,7 @@
 .makeStyles-root-2{
  height: 100%;
 }
+
+.MuiCardMedia-root{
+ background-position: inherit !important;
+}
