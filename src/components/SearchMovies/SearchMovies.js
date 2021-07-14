@@ -6,9 +6,7 @@ export default function SearchMovies({ setSearchData }) {
   function getSearchData(event) {
     const value = event.target.value;
 
-    if (value.trim()) {
-      setSearchData(value);
-    }
+    setSearchData(value);
   }
 
   return (

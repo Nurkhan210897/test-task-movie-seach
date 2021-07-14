@@ -44,6 +44,7 @@ export default function MovieList() {
 
   function getSearchData(e) {
     setValue(e);
+    console.log(e.length);
   }
 
   const filteredMovies = movies.filter((mov) => {
@@ -58,6 +59,7 @@ export default function MovieList() {
           <SearchMovies setSearchData={getSearchData} />
           <div className={classes.root}>
             <Grid container spacing={3}>
+              
               {filteredMovies.length ? (
                 filteredMovies.map((item, index) => {
                   return (
@@ -68,12 +70,11 @@ export default function MovieList() {
                 })
               ) : (
                 <div className="mo_movie">
-                  <h2>No movie</h2>
+                  <h2> No movie </h2>
                 </div>
               )}
             </Grid>
           </div>
-
           <PaginationList currentPage={currentPage} />
         </Container>
       )}

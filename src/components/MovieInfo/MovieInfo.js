@@ -30,6 +30,7 @@ export default function MovieInfo({ match }) {
           setMoviePoster(response.Poster);
           setMoviePlot(response.Plot);
           setLoading(false);
+          window.scrollTo(0, 0);
         }, 1000);
       });
   }, []);
