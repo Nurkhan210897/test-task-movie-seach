@@ -5,3 +5,7 @@
 .MuiPagination-ul {
     justify-content: center;
 }
+
+.MuiPagination-ul li button {
+    color: #fff;
+}

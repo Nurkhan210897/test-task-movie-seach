@@ -32,7 +32,7 @@ export default function MovieList() {
       .then((response) => response.json())
       .then((response) => {
         setMovies(response.Search);
-        setLoading(false)
+        setLoading(false);
       });
   }, [page]);
 
@@ -66,7 +66,9 @@ export default function MovieList() {
                   );
                 })
               ) : (
-                <h2>No movie</h2>
+                <div className="mo_movie">
+                  <h2>No movie</h2>
+                </div>
               )}
             </Grid>
           </div>

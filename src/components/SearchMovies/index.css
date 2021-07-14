@@ -8,3 +8,15 @@
 .search_form .MuiTextField-root {
     width: 100%;
 }
+
+.MuiInputBase-input {
+    color: #fff !important;
+}
+
+.MuiFormLabel-root {
+    color: #fff !important;
+}
+
+.MuiInput-underline:before {
+    border-color: #fff !important;
+}

@@ -14,7 +14,7 @@ export default function PaginationList({ currentPage }) {
   let history = useHistory();
   const handleChange = (event, value) => {
     setPage(value);
-    currentPage(currentPageNum);
+    currentPage(value);
     queryPage.set("page", value);
     history.push(window.location.pathname + "?" + queryPage.toString());
   };
