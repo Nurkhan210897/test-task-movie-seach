@@ -1,16 +1,22 @@
 import React from "react";
 import Pagination from "@material-ui/lab/Pagination";
-import { useLocation } from "react-router-dom";
-import './index.css'
+import { useLocation, useHistory } from "react-router-dom";
+import "./index.css";
 
 export default function PaginationList({ currentPage }) {
-  const [page, setPage] = React.useState(1);
-  let queryPage = new URLSearchParams(useLocation().search);
+  let queryPage = new URLSearchParams(window.location.search);
 
+  let currentPageNum = queryPage.get("page")
+    ? Number(queryPage.get("page"))
+    : 1;
+
+  const [page, setPage] = React.useState(currentPageNum);
+  let history = useHistory();
   const handleChange = (event, value) => {
     setPage(value);
-    queryPage.set("page", page);
-    currentPage(value);
+    currentPage(currentPageNum);
+    queryPage.set("page", value);
+    history.push(window.location.pathname + "?" + queryPage.toString());
   };
 
   return (
