@@ -9,3 +9,7 @@
 .MuiPagination-ul li button {
     color: #fff;
 }
+
+.MuiPaginationItem-ellipsis{
+    color: #fff !important;
+}
