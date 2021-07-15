@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 
 export default function MovieCard(props) {
   const classes = useStyles();
+  const isHttp  = 'http';
 
   return (
     <Card className={classes.root}>
@@ -30,7 +31,7 @@ export default function MovieCard(props) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={props.movies.Poster}
+            image={props.movies.Poster.indexOf('http') == 0 ? props.movies.Poster : './images/no_poster.png'}
             title="Contemplative Reptile"
           />
           <CardContent>
