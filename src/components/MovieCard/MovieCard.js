@@ -31,7 +31,7 @@ export default function MovieCard(props) {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={props.movies.Poster.indexOf('http') == 0 ? props.movies.Poster : './images/no_poster.png'}
+            image={props.movies.Poster.indexOf(isHttp) == 0 ? props.movies.Poster : './images/no_poster.png'}
             title="Contemplative Reptile"
           />
           <CardContent>
